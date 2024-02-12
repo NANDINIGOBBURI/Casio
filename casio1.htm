@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background :pink;
+        }
+
+        .calculator {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .display {
+            background-color: #444;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            font-size: 1.5em;
+            text-align: right;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            height:30px;
+        }
+
+        .keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .button.red {
+            background-color: #ff6b6b;
+            color: #fff;
+        }
+
+        .button.blue {
+            background-color: #6bbfff;
+            color: #fff;
+        }
+
+        .button.green {
+            background-color: #6bff7c;
+            color: #fff;
+        }
+
+        .button.orange {
+            background-color: #ffbb6b;
+            color: #fff;
+        }
+
+        .button.gray {
+            background-color: #999;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div >
+<h1 style="color:BLACK"><center><u><i>CALCULATOR</u></center><i></center></h1>
+    <div class="calculator">
+        <div class="display" id="display"></div>
+
+    <div class="keys">
+        <button class="button red" onclick="appendToDisplay('/')">/</button>
+        <button class="button blue" onclick="appendToDisplay('7')">7</button>
+        <button class="button blue" onclick="appendToDisplay('8')">8</button>
+        <button class="button blue" onclick="appendToDisplay('9')">9</button>
+        <button class="button red" onclick="appendToDisplay('*')">*</button>
+        <button class="button blue" onclick="appendToDisplay('4')">4</button>
+        <button class="button blue" onclick="appendToDisplay('5')">5</button>
+        <button class="button blue" onclick="appendToDisplay('6')">6</button>
+        <button class="button red" onclick="appendToDisplay('-')">-</button>
+        <button class="button blue" onclick="appendToDisplay('1')">1</button>
+        <button class="button blue" onclick="appendToDisplay('2')">2</button>
+        <button class="button blue" onclick="appendToDisplay('3')">3</button>
+        <button class="button red" onclick="appendToDisplay('+')">+</button>
+        <button class="button blue" onclick="appendToDisplay('0')">0</button>
+        <button class="button blue" onclick="appendToDisplay('.')">.</button>
+        <button class="button orange" onclick="clearDisplay()">C</button>
+        <button class="button gray" onclick="calculate()">=</button>
+    </div>
+</div>
+</div>
+
+<script>
+    function appendToDisplay(value) {
+        document.getElementById('display').innerText += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').innerText = '';
+    }
+
+    function calculate() {
+        const displayValue = document.getElementById('display').innerText;
+        try {
+            const result = eval(displayValue);
+            document.getElementById('display').innerText = result;
+        } catch (error) {
+            document.getElementById('display').innerText = 'Error';
+        }
+    }
+</script>
+
+</body>
+</html>
+
